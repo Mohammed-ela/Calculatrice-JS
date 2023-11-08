@@ -1,3 +1,4 @@
+        //Lorsque la page est completement chargé 
 document.addEventListener('DOMContentLoaded', function() {
         // On enregsitre les information dans des constantes
     const form = document.getElementById('formulaire');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const operationSelect = document.getElementById('operation');
     const resultsDiv = document.getElementById('results');
     const errorDiv = document.querySelector('.error');
-        // Lorsque le boutton submit est cliqué 
+        // Lorsque le boutton submit est cliqué (le formulaire )
     form.addEventListener('submit', function(event) {
         // on recharge pas la page
         event.preventDefault();
@@ -27,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // on initialise une variable resultat a nul
             let result;
             switch (operation) {
+                // si operation vaut +
                 case '+':
+                    // alors on affecte a "result" l'addition
                     result = num1 + num2;
                     break;
                 case '-':
@@ -58,14 +61,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
             }
                     // si l'operation et le calcule a bien etait effectué on affiche le resultat a l'aide de textcontent en affichant la div result
-
                     resultsDiv.textContent = `Résultat : ${result}`;
                     resultsDiv.style.display = 'block';
         }
     });
-
+        // Lorsque le bouton de type reset est cliqué 
     form.addEventListener('reset', function() {
+        // On masque les div resultat et erreur
         errorDiv.style.display = 'none';
         resultsDiv.style.display = 'none';
     });
+
 });
